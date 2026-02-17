@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mic Confident - Sound Like a Pro in 30 Days</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header/Navigation */
+        .header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .logo-text .mic {
+            background: linear-gradient(135deg, #FFA500 0%, #FF4500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-text .confident {
+            color: #2D3436;
+        }
+        
+        .cta-nav {
+            background: linear-gradient(135deg, #FFA500 0%, #FF4500 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .cta-nav:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.95) 0%, rgba(255, 69, 0, 0.95) 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-left h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-left .subheadline {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+        
+        .hero-left .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-features {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .hero-feature-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        /* Classic Microphone Container */
+        .hero-mic-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        
+        .classic-microphone {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+        }
+        
+        /* CTA Box */
+        .cta-box {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 550px;
+            margin: -80px auto 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .cta-box h3 {
+            color: #2D3436;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .cta-box p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .email-form input {
+            padding: 16px;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s;
+        }
+        
+        .email-form input:focus {
+            outline: none;
+            border-color: #FF4500;
+        }
+        
+        .email-form button {
+            background: linear-gradient(135deg, #FFA500 0%, #FF4500 100%);
+            color: white;
+            padding: 18px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .email-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 69, 0, 0.4);
+        }
+        
+        .trust-badge {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #888;
+            text-align: center;
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            padding: 100px 20px;
+            background: #f9fafb;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #1f2937;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            border-left: 5px solid #ef4444;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+        
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .problem-card h3 {
+            color: #ef4444;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .problem-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        /* Solution Section */
+        .solution-section {
+            padding: 100px 20px;
+            background: white;
+        }
+        
+        .solution-intro {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .day-card {
+            background: linear-gradient(135deg, #FFA50015 0%, #FF450015 100%);
+            padding: 30px;
+            border-radius: 16px;
+            border: 2px solid #FFA50030;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(255, 165, 0, 0.15);
+        }
+        
+        .day-number {
+            background: linear-gradient(135deg, #FFA500 0%, #FF4500 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(255, 69, 0, 0.3);
+        }
+        
+        .day-card h4 {
+            color: #1f2937;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        
+        .day-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        /* Credibility Section */
+        .credibility-section {
+            padding: 100px 20px;
+            background: #1f2937;
+            color: white;
+        }
+        
+        .credibility-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .credibility-image {
+            background: rgba(255, 165, 0, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 165, 0, 0.3);
+        }
+        
+        .credibility-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+        }
+        
+        .credibility-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .credibility-highlight {
+            background: rgba(255, 165, 0, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border-left: 4px solid #FFA500;
+        }
+        
+        .credibility-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFA500 0%, #FF4500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 20px;
+            background: white;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            border-left: 5px solid #FFA500;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .faq-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .faq-item h4 {
+            color: #1f2937;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .faq-item h4::before {
+            content: 'Q:';
+            background: linear-gradient(135deg, #FFA500 0%, #FF4500 100%);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        
+        .faq-item p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-left: 40px;
+        }
+        
+        /* Final CTA Section */
+        .final-cta {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #FFA500 0%, #FF4500 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 1.4rem;
+            margin-bottom: 50px;
+            opacity: 0.95;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .footer-about p {
+            color: #9ca3af;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: #FFA500;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-left h1 {
+                font-size: 2.5rem;
+            }
+            
+            .credibility-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .credibility-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-left h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-left .subheadline {
+                font-size: 1.2rem;
+            }
+            
+            .hero-features {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .cta-box {
+                padding: 30px 20px;
+                margin-top: -60px;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .credibility-text h2 {
+                font-size: 2rem;
+            }
+            
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
+            }
+            
+            .cta-nav {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <!-- Logo SVG -->
+                <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="micGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFA500;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FF4500;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <ellipse cx="100" cy="70" rx="30" ry="40" fill="url(#micGradient)"/>
+                    <rect x="85" y="70" width="30" height="8" fill="white"/>
+                    <rect x="85" y="82" width="30" height="8" fill="white"/>
+                    <rect x="85" y="94" width="30" height="8" fill="white"/>
+                    <rect x="95" y="110" width="10" height="40" fill="url(#micGradient)"/>
+                    <rect x="80" y="145" width="40" height="8" rx="4" fill="url(#micGradient)"/>
+                    <path d="M 50 50 Q 45 70 50 90" stroke="#00A8E8" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M 35 40 Q 28 70 35 100" stroke="#00A8E8" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M 20 30 Q 10 70 20 110" stroke="#00A8E8" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M 150 50 Q 155 70 150 90" stroke="#00A8E8" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M 165 40 Q 172 70 165 100" stroke="#00A8E8" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M 180 30 Q 190 70 180 110" stroke="#00A8E8" stroke-width="4" fill="none" stroke-linecap="round"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="mic">Mic</span><span class="confident">CONFIDENT</span>
+                </div>
+            </div>
+            <a href="#signup" class="cta-nav">Start Free Challenge</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-left">
+                <h1>Stop Cringing at Your Podcast Voice</h1>
+                <p class="subheadline">Sound confident, clear, and professional in just 30 days</p>
+                <p class="tagline">Free 5-Day Voice Confidence Challenge for Podcasters</p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✓</span>
+                        <span>Eliminate "ums" & "ahs"</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✓</span>
+                        <span>Sound natural & confident</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✓</span>
+                        <span>Radio techniques that work</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-mic-container">
+                <!-- Classic Vintage Broadcast Microphone SVG -->
+                <svg class="classic-microphone" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
+                    <def
