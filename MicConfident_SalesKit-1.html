@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mic Confident — Sales Kit</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --orange: #FF4500;
+    --orange-dark: #CC3300;
+    --orange-mid: #FFD5B8;
+    --orange-lite: #FFF0E8;
+    --dark: #1E1E1E;
+    --dark2: #333333;
+    --gray: #666666;
+    --light-gray: #F5F5F5;
+    --mid-gray: #E0E0E0;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Barlow', Helvetica, sans-serif;
+    background: var(--white);
+    color: var(--dark2);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── TABS ── */
+  .tabs {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--dark);
+    display: flex;
+    border-bottom: 2px solid var(--orange);
+  }
+  .tab {
+    padding: 14px 28px;
+    color: var(--orange-mid);
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: all 0.2s;
+  }
+  .tab.active, .tab:hover { background: var(--orange); color: white; }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* ── SHARED ── */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 32px; }
+  .orange-rule { height: 2px; background: var(--orange); margin: 8px 0 20px; }
+  .section { padding: 56px 0; }
+  .section + .section { border-top: 1px solid var(--mid-gray); }
+
+  h1 { font-family: 'Barlow Condensed', Helvetica, sans-serif; font-size: 52px; font-weight: 900; color: var(--dark); line-height: 1.05; letter-spacing: -1px; }
+  h2 { font-family: Helvetica, sans-serif; font-size: 22px; font-weight: bold; color: var(--dark); margin-bottom: 4px; }
+  h3 { font-family: Helvetica, sans-serif; font-size: 15px; font-weight: bold; color: var(--dark); margin-bottom: 4px; }
+  .label { font-family: Helvetica, sans-serif; font-weight: bold; font-size: 11px; letter-spacing: 2px; color: var(--orange); margin-bottom: 6px; text-transform: uppercase; }
+  p { color: var(--dark2); font-size: 15px; line-height: 1.65; margin-bottom: 12px; }
+
+  /* ── PANEL 1: LANDING PAGE ── */
+  .hero {
+    background: var(--dark);
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange), var(--orange-dark));
+  }
+  .hero-grid { display: grid; grid-template-columns: 1fr 320px; gap: 60px; align-items: center; }
+  .hero-eyebrow { font-family: Helvetica, sans-serif; font-size: 10px; font-weight: bold; letter-spacing: 3px; color: var(--orange-mid); margin-bottom: 16px; }
+  .hero-title { font-family: 'Barlow Condensed', Helvetica, sans-serif; font-weight: 900; font-size: 72px; color: white; line-height: 0.95; letter-spacing: -2px; margin-bottom: 16px; }
+  .hero-title span { color: var(--orange); }
+  .hero-subtitle { font-size: 16px; color: var(--orange-mid); margin-bottom: 28px; }
+  .hero-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+  .pill { background: rgba(255,69,0,0.15); border: 1px solid var(--orange); color: var(--orange); font-size: 11px; font-weight: bold; letter-spacing: 1px; padding: 6px 14px; border-radius: 4px; font-family: Helvetica, sans-serif; }
+  .hero-price-box { background: var(--orange); border-radius: 4px; padding: 28px; text-align: center; }
+  .price-label { font-size: 11px; font-weight: bold; letter-spacing: 2px; color: rgba(255,255,255,0.75); font-family: Helvetica, sans-serif; margin-bottom: 4px; }
+  .price { font-family: 'Barlow Condensed', Helvetica, sans-serif; font-size: 64px; font-weight: 900; color: white; line-height: 1; margin-bottom: 4px; }
+  .price-note { font-size: 12px; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+  .btn-primary {
+    display: block; width: 100%;
+    background: white; color: var(--orange);
+    font-family: Helvetica, sans-serif; font-weight: bold; font-size: 13px; letter-spacing: 1px;
+    padding: 14px; border-radius: 4px; text-align: center; cursor: pointer;
+    border: none; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--dark); color: white; }
+  .guarantee { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 10px; text-align: center; font-family: Helvetica, sans-serif; }
+
+  /* Pain section */
+  .pain-section { background: var(--orange-lite); padding: 48px 0; }
+  .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pain-item { background: white; border-left: 4px solid var(--orange); padding: 16px 18px; border-radius: 0 4px 4px 0; }
+  .pain-item p { margin: 0; font-size: 14px; color: var(--dark2); }
+
+  /* What you get */
+  .techniques-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .technique-card { background: var(--light-gray); border-radius: 4px; overflow: hidden; }
+  .technique-card-header { background: var(--dark); padding: 12px 16px; display: flex; align-items: center; gap: 12px; }
+  .tech-num { font-family: 'Barlow Condensed', Helvetica, sans-serif; font-size: 28px; font-weight: 900; color: var(--orange); line-height: 1; }
+  .tech-title { font-family: Helvetica, sans-serif; font-weight: bold; font-size: 13px; color: white; }
+  .technique-card-body { padding: 14px 16px; font-size: 13px; color: var(--dark2); line-height: 1.55; }
+
+  /* Testimonial / quote */
+  .quote-section { background: var(--dark); padding: 56px 0; }
+  .quote-mark { font-family: 'Barlow Condensed', Helvetica, sans-serif; font-size: 120px; font-weight: 900; color: var(--orange); line-height: 0.6; margin-bottom: 20px; opacity: 0.6; }
+  .quote-text { font-size: 22px; color: white; line-height: 1.5; font-style: italic; margin-bottom: 20px; }
+  .quote-attr { font-size: 13px; color: var(--orange-mid); font-family: Helvetica, sans-serif; }
+
+  /* About Mike */
+  .mike-grid { display: grid; grid-template-columns: 100px 1fr; gap: 24px; align-items: start; }
+  .mike-avatar { width: 100px; height: 100px; border-radius: 50%; background: var(--dark); border: 3px solid var(--orange); display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', Helvetica, sans-serif; font-size: 32px; font-weight: 900; color: var(--orange); flex-shrink: 0; }
+
+  /* CTA bottom */
+  .cta-bottom { background: var(--orange); padding: 60px 0; text-align: center; }
+  .cta-bottom h2 { color: white; font-size: 32px; margin-bottom: 8px; font-family: 'Barlow Condensed', Helvetica, sans-serif; font-weight: 900; font-size: 42px; }
+  .cta-bottom p { color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 28px; }
+  .btn-white { display: inline-block; background: white; color: var(--orange); font-family: Helvetica, sans-serif; font-weight: bold; font-size: 14px; letter-spacing: 1px; padding: 16px 40px; border-radius: 4px; cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; }
+  .btn-white:hover { background: var(--dark); color: white; }
+
+  footer { background: var(--dark); padding: 28px 0; text-align: center; border-top: 2px solid var(--orange); }
+  footer p { color: var(--gray); font-size: 12px; margin: 0; font-family: Helvetica, sans-serif; }
+  footer a { color: var(--orange); text-decoration: none; }
+
+  /* ── PANEL 2: GUMROAD DESCRIPTION ── */
+  .gumroad-panel { background: var(--light-gray); padding: 48px 0; }
+  .gumroad-doc { background: white; border-radius: 4px; padding: 48px; max-width: 860px; margin: 0 auto; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+  .gumroad-doc h2 { font-size: 20px; margin: 28px 0 6px; color: var(--dark); }
+  .gumroad-doc h2:first-child { margin-top: 0; }
+  .gumroad-doc p { font-size: 15px; line-height: 1.7; color: var(--dark2); margin-bottom: 12px; }
+  .gumroad-doc ul { margin: 8px 0 16px 0; padding: 0; list-style: none; }
+  .gumroad-doc ul li { font-size: 15px; color: var(--dark2); padding: 5px 0 5px 20px; position: relative; line-height: 1.6; }
+  .gumroad-doc ul li::before { content: '✓'; color: var(--orange); font-weight: bold; position: absolute; left: 0; }
+  .gumroad-doc .technique-list li::before { content: '→'; }
+  .copy-btn { background: var(--orange); color: white; border: none; padding: 12px 24px; border-radius: 4px; font-family: Helvetica, sans-serif; font-weight: bold; font-size: 12px; letter-spacing: 1px; cursor: pointer; margin-bottom: 32px; transition: background 0.2s; }
+  .copy-btn:hover { background: var(--orange-dark); }
+  .copy-btn.copied { background: #2D8A4E; }
+  .instructions { background: var(--dark); color: white; border-radius: 4px; padding: 28px; margin-bottom: 32px; }
+  .instructions h3 { color: var(--orange); font-family: Helvetica, sans-serif; margin-bottom: 12px; font-size: 13px; letter-spacing: 2px; }
+  .instructions ol { padding-left: 20px; }
+  .instructions li { color: var(--orange-mid); font-size: 14px; line-height: 1.7; margin-bottom: 4px; }
+  .gumroad-doc .highlight-box { background: var(--orange-lite); border-left: 4px solid var(--orange); padding: 16px 18px; border-radius: 0 4px 4px 0; margin: 16px 0; }
+  .gumroad-doc .highlight-box p { margin: 0; color: var(--dark2); font-size: 14px; }
+
+  /* ── PANEL 3: PRICING & STRATEGY ── */
+  .strategy-panel { padding: 48px 0; }
+  .strategy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+  .strategy-card { background: var(--light-gray); border-radius: 4px; padding: 24px; }
+  .strategy-card h3 { font-size: 15px; color: var(--dark); margin-bottom: 8px; font-family: Helvetica, sans-serif; }
+  .strategy-card p, .strategy-card li { font-size: 14px; color: var(--dark2); line-height: 1.6; }
+  .strategy-card ul { padding-left: 16px; margin-top: 8px; }
+  .price-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+  .price-table th { background: var(--dark); color: white; font-family: Helvetica, sans-serif; font-size: 11px; letter-spacing: 1px; padding: 10px 12px; text-align: left; }
+  .price-table td { padding: 10px 12px; border-bottom: 1px solid var(--mid-gray); color: var(--dark2); }
+  .price-table tr:nth-child(odd) td { background: var(--light-gray); }
+  .price-table tr:nth-child(even) td { background: white; }
+  .recommended { background: var(--orange) !important; }
+  .recommended td { color: white !important; font-weight: bold; }
+
+  @media (max-width: 700px) {
+    .hero-grid, .pain-grid, .techniques-grid, .strategy-grid, .mike-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 52px; }
+    h1 { font-size: 36px; }
+    .gumroad-doc { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TAB NAVIGATION -->
+<div class="tabs">
+  <button class="tab active" onclick="showPanel('landing')">LANDING PAGE</button>
+  <button class="tab" onclick="showPanel('gumroad')">GUMROAD DESCRIPTION</button>
+  <button class="tab" onclick="showPanel('strategy')">PRICING & STRATEGY</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PANEL 1: LANDING PAGE PREVIEW                       -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="panel-landing" class="panel active">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow">MIC CONFIDENT · THE PODCASTER'S VOICE GUIDE</div>
+          <div class="hero-title">STOP<br><span>CRINGING</span><br>AT YOUR<br>OWN VOICE.</div>
+          <p class="hero-subtitle">5 real radio broadcast techniques that transform how you sound on mic — practised by professionals, packaged for podcasters.</p>
+          <div class="hero-pills">
+            <span class="pill">5 TECHNIQUES</span>
+            <span class="pill">15 EXERCISES</span>
+            <span class="pill">PRACTICE SCRIPTS</span>
+            <span class="pill">21-DAY PLAN</span>
+            <span class="pill">BONUS CHAPTER</span>
+          </div>
+        </div>
+        <div class="hero-price-box">
+          <div class="price-label">GET INSTANT ACCESS</div>
+          <div class="price">$17</div>
+          <div class="price-note">One-time payment · Instant PDF download</div>
+          <a href="https://gumroad.com" class="btn-primary" target="_blank">BUY NOW — SOUND LIKE A PRO</a>
+          <div class="guarantee">30-day money-back guarantee</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAIN POINTS -->
+  <div class="pain-section">
+    <div class="container">
+      <div class="label">SOUND FAMILIAR?</div>
+      <div class="orange-rule"></div>
+      <div class="pain-grid">
+        <div class="pain-item"><p>You hit play on your episode and cringe before the first sentence is done</p></div>
+        <div class="pain-item"><p>You say "um" and "like" constantly — even when you know your topic cold</p></div>
+        <div class="pain-item"><p>Your voice sounds thin, nervous, or nothing like how you feel inside</p></div>
+        <div class="pain-item"><p>You've listened to the pros and wondered — how do they just sound so… confident?</p></div>
+        <div class="pain-item"><p>You've Googled "how to sound better on podcast" and got vague, useless advice</p></div>
+        <div class="pain-item"><p>You've re-recorded the same intro four times and still hate it</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <div class="section">
+    <div class="container">
+      <div class="label">WHAT'S INSIDE</div>
+      <h2>5 Techniques From 8 Years Behind The Mic</h2>
+      <div class="orange-rule"></div>
+      <p>This isn't a motivation book. It's a training guide — the same kind professional broadcasters go through, condensed into a format you can work through in an afternoon. Every technique comes with step-by-step exercises and a practice script you read aloud.</p>
+
+      <div class="techniques-grid">
+        <div class="technique-card">
+          <div class="technique-card-header">
+            <div class="tech-num">01</div>
+            <div class="tech-title">The Filler Word Kill-Switch</div>
+          </div>
+          <div class="technique-card-body">Replace um, uh, and like with a deliberate pause that actually makes you sound more authoritative — not less.</div>
+        </div>
+        <div class="technique-card">
+          <div class="technique-card-header">
+            <div class="tech-num">02</div>
+            <div class="tech-title">The Diaphragmatic Anchor</div>
+          </div>
+          <div class="technique-card-body">Breathe like a broadcaster. One technique that grounds your voice, reduces mic nerves, and adds instant resonance.</div>
+        </div>
+        <div class="technique-card">
+          <div class="technique-card-header">
+            <div class="tech-num">03</div>
+            <div class="tech-title">The Authority Tone</div>
+          </div>
+          <div class="technique-card-body">Find the version of your voice that commands attention. Chest voice, deliberate emphasis, controlled pace.</div>
+        </div>
+        <div class="technique-card">
+          <div class="technique-card-header">
+            <div class="tech-num">04</div>
+            <div class="tech-title">The Power Pause</div>
+          </div>
+          <div class="technique-card-body">Silence is a tool, not a failure. Learn to use it before, after, and instead of filler words — like every great broadcaster does.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <div class="technique-card" style="background: var(--orange-lite);">
+          <div class="technique-card-header" style="background: var(--orange);">
+            <div class="tech-num" style="color:white;">+</div>
+            <div class="tech-title">BONUS: The Confidence Mindset</div>
+          </div>
+          <div class="technique-card-body">The mental reframe that makes every other technique click. Stop listening back like a critic and start training like a broadcaster.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUOTE SECTION -->
+  <div class="quote-section">
+    <div class="container">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">A confident, compelling voice isn't a gift. It's a skill. A learnable, teachable, practisable skill — and this guide gives you the exact techniques to build it.</div>
+      <div class="quote-attr">— Mike, The Radio Submarine · 8 years professional broadcaster</div>
+    </div>
+  </div>
+
+  <!-- WHAT'S ACTUALLY INSIDE -->
+  <div class="section">
+    <div class="container">
+      <div class="label">EVERYTHING YOU GET</div>
+      <h2>One PDF. Everything You Need.</h2>
+      <div class="orange-rule"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+        <div>
+          <h3 style="margin-bottom:10px;color:var(--orange);">The Guide Includes</h3>
+          <ul>
+            <li>5 professional broadcast techniques</li>
+            <li>15 step-by-step exercises with clear instructions</li>
+            <li>5 practice scripts — one per technique — to read aloud</li>
+            <li>The full master script using all 4 techniques simultaneously</li>
+            <li>Self-assessment table to identify your #1 gap</li>
+            <li>21-Day Practice Schedule — week by week</li>
+            <li>Pre-recording cheat sheet to use before every episode</li>
+            <li>Bonus Confidence Mindset chapter</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-bottom:10px;color:var(--orange);">This Guide Is For You If...</h3>
+          <ul>
+            <li>You cringe every time you listen back to your episodes</li>
+            <li>You know your topic but freeze or stumble on mic</li>
+            <li>You want to sound like the professional you already are</li>
+            <li>You've never had any formal voice or broadcasting training</li>
+            <li>You're ready to do the actual exercises — not just read about them</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT MIKE -->
+  <div class="section" style="background:var(--light-gray);padding:48px 0;">
+    <div class="container">
+      <div class="label">YOUR TRAINER</div>
+      <h2>About Mike</h2>
+      <div class="orange-rule"></div>
+      <div class="mike-grid">
+        <div class="mike-avatar">M</div>
+        <div>
+          <p><strong>Mike — The Radio Submarine</strong> spent 8 years as a professional radio broadcaster, on-air and live under pressure. He's trained in the exact vocal techniques taught at broadcast institutions — and he's packaged them into a format any podcaster can use immediately.</p>
+          <p>Mic Confident exists because nobody teaches podcasters how to actually use their voice. This guide is the course Mike wishes had existed when he started.</p>
+          <p style="color:var(--orange);font-weight:bold;font-size:14px;">micconfident.com · @micconfident</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="cta-bottom">
+    <div class="container">
+      <h2>Ready to Love Your Recorded Voice?</h2>
+      <p>One purchase. Instant download. 21 days to a voice you're proud of.</p>
+      <a href="https://gumroad.com" class="btn-white" target="_blank">GET SOUND LIKE A PRO — $17</a>
+      <p style="margin-top:16px;font-size:12px;color:rgba(255,255,255,0.6);">30-day money-back guarantee · PDF instant download · micconfident.com</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© Mic Confident · <a href="https://micconfident.com">micconfident.com</a> · @micconfident · micconfident@gmail.com</p>
+    </div>
+  </footer>
+
+</div><!-- end panel-landing -->
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PANEL 2: GUMROAD DESCRIPTION                        -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="panel-gumroad" class="panel">
+<div class="gumroad-panel">
+  <div class="container">
+
+    <div class="instructions">
+      <h3>HOW TO USE THIS</h3>
+      <ol>
+        <li>Click "Copy Gumroad Description" below</li>
+        <li>Go to gumroad.com → New Product → Digital Product</li>
+        <li>Paste into the product description field</li>
+        <li>Upload your PDF, set price to $17, add the cover image</li>
+        <li>Set your product URL to: gumroad.com/l/micconfident</li>
+        <li>Hit Publish — you're live</li>
+      </ol>
+    </div>
+
+    <button class="copy-btn" onclick="copyDescription(this)">COPY GUMROAD DESCRIPTION</button>
+
+    <div class="gumroad-doc" id="gumroad-copy-target">
+
+      <h2>Stop Cringing At Your Own Voice.</h2>
+      <div class="orange-rule"></div>
+
+      <p>You know that moment. You hit play on your episode and before the first sentence is done — you cringe. Your voice sounds thin. Nervous. Nothing like how you feel inside.</p>
+
+      <p>You're not alone. And more importantly: there's nothing wrong with you. <strong>Nobody taught you the techniques.</strong></p>
+
+      <p>This guide does.</p>
+
+      <div class="highlight-box">
+        <p><strong>Sound Like a Pro</strong> gives you 5 real radio broadcast techniques — the same training professional broadcasters go through — condensed into a format you can work through in an afternoon.</p>
+      </div>
+
+      <h2>What's Inside</h2>
+
+      <ul class="technique-list">
+        <li><strong>Technique 01: The Filler Word Kill-Switch</strong> — Replace um, uh, and like with a deliberate pause that makes you sound MORE authoritative, not less. Includes 3 exercises and a practice script.</li>
+        <li><strong>Technique 02: The Diaphragmatic Anchor</strong> — Breathe like a broadcaster. One technique that grounds your voice, reduces mic nerves, and adds instant resonance. Includes 3 exercises.</li>
+        <li><strong>Technique 03: The Authority Tone</strong> — Find the version of your voice that commands attention. Chest voice, deliberate emphasis, controlled pace. Includes 3 exercises.</li>
+        <li><strong>Technique 04: The Power Pause</strong> — Silence is a tool, not a failure. Learn to use it before, after, and instead of filler words — exactly like every great broadcaster does.</li>
+        <li><strong>Technique 05: Your 21-Day Transformation Plan</strong> — A structured practice schedule, self-assessment table, and pre-recording cheat sheet you'll use before every episode.</li>
+        <li><strong>BONUS: The Confidence Mindset</strong> — The mental reframe that makes every other technique click. Stop listening back like a critic and start training like a broadcaster.</li>
+      </ul>
+
+      <h2>This Guide Is For You If...</h2>
+      <ul>
+        <li>You cringe every time you listen back to your episodes</li>
+        <li>You know your topic but freeze or stumble when recording</li>
+        <li>You want to sound like the professional you already are</li>
+        <li>You've never had any formal voice or broadcasting training</li>
+        <li>You're ready to actually do the exercises — not just read about them</li>
+      </ul>
+
+      <h2>What Makes This Different</h2>
+      <p>Most podcasting advice is about gear, editing, or marketing. This guide is about the one thing nobody talks about: <strong>how to use your voice</strong>.</p>
+      <p>Every technique comes with step-by-step exercises you do out loud, and a practice script designed to make the technique feel real in your own voice. Your voice is a physical instrument. Reading about it changes nothing. Using it changes everything.</p>
+
+      <h2>About The Author</h2>
+      <p><strong>Mike — The Radio Submarine</strong> spent 8 years as a professional radio broadcaster, on-air and live under pressure. Mic Confident exists because nobody teaches podcasters how to actually use their voice. This guide is the training he wishes he'd had access to from day one.</p>
+
+      <h2>What You Get</h2>
+      <ul>
+        <li>Instant PDF download — 20+ pages, beautifully designed</li>
+        <li>5 techniques with 15 exercises total</li>
+        <li>5 practice scripts — one per technique — read aloud</li>
+        <li>1 master script using all 4 techniques simultaneously</li>
+        <li>Self-assessment table + 21-Day Practice Schedule</li>
+        <li>Pre-recording cheat sheet for every session</li>
+        <li>Bonus Confidence Mindset chapter</li>
+        <li>30-day money-back guarantee</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>Also free:</strong> Join the 5-Day Voice Confidence Challenge at micconfident.com for deeper coaching on each technique, audio examples, and personalised guidance — delivered to your inbox.</p>
+      </div>
+
+    </div><!-- end gumroad-doc -->
+
+    <div style="margin-top:32px;">
+      <div class="label">PRODUCT SETUP CHECKLIST</div>
+      <div style="background:white;border-radius:4px;padding:28px;margin-top:8px;">
+        <ul style="list-style:none;padding:0;">
+          <li style="padding:8px 0;border-bottom:1px solid var(--mid-gray);font-size:14px;color:var(--dark2);">☐ &nbsp; Product title: <strong>Sound Like a Pro — The Podcaster's Voice Training Guide</strong></li>
+          <li style="padding:8px 0;border-bottom:1px solid var(--mid-gray);font-size:14px;color:var(--dark2);">☐ &nbsp; Price: <strong>$17</strong> (test at $22 after first 10 sales)</li>
+          <li style="padding:8px 0;border-bottom:1px solid var(--mid-gray);font-size:14px;color:var(--dark2);">☐ &nbsp; Upload: <strong>MicConfident_SoundLikeAPro_v4.pdf</strong></li>
+          <li style="padding:8px 0;border-bottom:1px solid var(--mid-gray);font-size:14px;color:var(--dark2);">☐ &nbsp; Cover image: upload the <strong>cover_image.svg</strong> file</li>
+          <li style="padding:8px 0;border-bottom:1px solid var(--mid-gray);font-size:14px;color:var(--dark2);">☐ &nbsp; Custom URL: <strong>gumroad.com/l/micconfident</strong></li>
+          <li style="padding:8px 0;border-bottom:1px solid var(--mid-gray);font-size:14px;color:var(--dark2);">☐ &nbsp; Tags: <strong>podcasting, voice training, public speaking, broadcasting, communication</strong></li>
+          <li style="padding:8px 0;border-bottom:1px solid var(--mid-gray);font-size:14px;color:var(--dark2);">☐ &nbsp; Category: <strong>Education → Self-Improvement</strong></li>
+          <li style="padding:8px 0;font-size:14px;color:var(--dark2);">☐ &nbsp; Enable: <strong>30-day refund policy</strong> (builds buyer trust massively)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div><!-- end panel-gumroad -->
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PANEL 3: PRICING & GROWTH STRATEGY                  -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="panel-strategy" class="panel">
+<div class="strategy-panel">
+  <div class="container">
+
+    <div class="label">YOUR SALES STRATEGY</div>
+    <h2>How To Turn This Into Consistent Income</h2>
+    <div class="orange-rule"></div>
+    <p>Here's the full picture — pricing, traffic, and what to build next to grow Mic Confident into a real passive income stream.</p>
+
+    <!-- PRICING TABLE -->
+    <h3 style="margin:28px 0 8px;">Pricing Roadmap</h3>
+    <table class="price-table">
+      <thead>
+        <tr><th>PHASE</th><th>PRICE</th><th>WHEN</th><th>WHY</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Launch</td><td>$17</td><td>Right now</td><td>Low barrier, easy first sales, builds social proof</td></tr>
+        <tr class="recommended"><td>⭐ Growth</td><td>$22–$27</td><td>After 10 sales</td><td>Proven product, raise with confidence</td></tr>
+        <tr><td>Bundle</td><td>$37–$47</td><td>After adding worksheet</td><td>PDF + fillable workbook = higher perceived value</td></tr>
+        <tr><td>Course</td><td>$97–$197</td><td>6–12 months</td><td>Video version of each technique = premium tier</td></tr>
+      </tbody>
+    </table>
+
+    <div class="strategy-grid" style="margin-top:32px;">
+
+      <div class="strategy-card">
+        <div class="label">WHERE TO DRIVE TRAFFIC</div>
+        <h3>Traffic Sources</h3>
+        <ul>
+          <li><strong>TikTok / Instagram Reels</strong> — 30–60 sec clips demonstrating one technique (e.g. "do THIS instead of saying um"). Direct to Gumroad link in bio.</li>
+          <li><strong>Reddit</strong> — r/podcasting, r/podcasters, r/publicSpeaking. Answer questions genuinely, mention the guide where relevant.</li>
+          <li><strong>Facebook Groups</strong> — Podcast communities. Be helpful first, sell second.</li>
+          <li><strong>Your own podcast</strong> — If you start one, every episode is a demo of the guide's effectiveness.</li>
+          <li><strong>micconfident.com</strong> — Blog posts targeting Google searches like "how to stop saying um podcast" rank over time.</li>
+        </ul>
+      </div>
+
+      <div class="strategy-card">
+        <div class="label">CONTENT THAT SELLS</div>
+        <h3>Post Ideas That Convert</h3>
+        <ul>
+          <li>"Record yourself for 90 seconds. Count your filler words. Here's what to do next." → link</li>
+          <li>Before/after audio clip — same script, before technique, after technique</li>
+          <li>"The one thing every great podcaster does that nervous ones don't" → power pause</li>
+          <li>"Your voice sounds different to you than everyone else — here's why and how to fix it"</li>
+          <li>The diaphragm test video — one hand chest, one hand stomach, watch which moves first</li>
+          <li>Share a listener win: "Just got this message from someone who used the guide..."</li>
+        </ul>
+      </div>
+
+      <div class="strategy-card">
+        <div class="label">WHAT TO BUILD NEXT</div>
+        <h3>Product Ladder</h3>
+        <ul>
+          <li><strong>Fillable PDF Workbook</strong> — same content, interactive form fields. Bundle with guide for $37.</li>
+          <li><strong>Audio companion</strong> — Mike reads each practice script professionally so buyers can hear the technique demonstrated. Adds $10–$15 to price.</li>
+          <li><strong>5-Day Email Course</strong> — Already built into the guide. Formalise it with ConvertKit or MailerLite. Upsell the paid PDF at day 3.</li>
+          <li><strong>1:1 Voice Coaching</strong> — 45-min session via Zoom. $97–$150. Gumroad supports this as a product type.</li>
+          <li><strong>Group cohort</strong> — 10 podcasters, 5 weeks, one technique per week. $297–$497.</li>
+        </ul>
+      </div>
+
+      <div class="strategy-card">
+        <div class="label">QUICK WINS THIS WEEK</div>
+        <h3>Do These First</h3>
+        <ul>
+          <li>✓ &nbsp;Set up Gumroad product today using description in tab 2</li>
+          <li>✓ &nbsp;Post your Gumroad link in your Instagram bio</li>
+          <li>✓ &nbsp;Film one 30-second Reel demonstrating the filler word technique</li>
+          <li>✓ &nbsp;Post in one Facebook podcasting group — genuinely helpful, no hard sell</li>
+          <li>✓ &nbsp;Email your existing audience if you have one — even 50 people is enough</li>
+          <li>✓ &nbsp;Set up free 5-Day challenge at micconfident.com as your email list builder</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- revenue calc -->
+    <div style="background:var(--dark);border-radius:4px;padding:32px;margin-top:32px;">
+      <div class="label" style="color:var(--orange-mid);">WHAT THIS COULD LOOK LIKE</div>
+      <h3 style="color:white;margin-bottom:16px;font-family:Helvetica,sans-serif;">Simple Revenue Projections at $17</h3>
+      <table class="price-table" style="background:transparent;">
+        <thead><tr><th>SALES / MONTH</th><th>GROSS</th><th>AFTER GUMROAD (10%)</th><th>ANNUAL</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--orange-mid);">10 sales</td><td style="color:var(--orange-mid);">$170</td><td style="color:var(--orange-mid);">$153</td><td style="color:var(--orange-mid);">$1,836</td></tr>
+          <tr><td style="color:var(--orange-mid);">30 sales</td><td style="color:var(--orange-mid);">$510</td><td style="color:var(--orange-mid);">$459</td><td style="color:var(--orange-mid);">$5,508</td></tr>
+          <tr style="background:rgba(255,69,0,0.15);"><td style="color:white;font-weight:bold;">100 sales</td><td style="color:white;font-weight:bold;">$1,700</td><td style="color:white;font-weight:bold;">$1,530</td><td style="color:white;font-weight:bold;">$18,360</td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--gray);font-size:13px;margin-top:12px;margin-bottom:0;">At $27 with 100 sales/month: $29,160/year. Fully passive once the traffic system is running.</p>
+    </div>
+
+  </div>
+</div>
+</div><!-- end panel-strategy -->
+
+<script>
+function showPanel(name) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function copyDescription(btn) {
+  const el = document.getElementById('gumroad-copy-target');
+  // Get plain text version
+  const text = el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ COPIED!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'COPY GUMROAD DESCRIPTION';
+      btn.classList.remove('copied');
+    }, 3000);
+  });
+}
+</script>
+</body>
+</html>
